@@ -1,0 +1,51 @@
+{
+  "id": 3,
+  "name": "grounded",
+  "parent": 1,
+  "hypothesis": "노트에 없는 약을 쓰지 말라고 못박으면 환각이 줄 것. 대신 누락이 늘 수 있다",
+  "change": "variant schema -> grounded",
+  "config": {
+    "model": "gemma3-4b",
+    "precision": "bf16",
+    "variant": "grounded",
+    "max_new_tokens": 512,
+    "batch": 8,
+    "decoding": "greedy",
+    "split": "audit/normal",
+    "n_notes": 100
+  },
+  "result": {
+    "micro_f1": 0.6704352741661956,
+    "ci_low": 0.5793547099406139,
+    "ci_high": 0.7583276139638806,
+    "precision": 0.6777142857142857,
+    "recall": 0.6633109619686801,
+    "parse_failures": 0,
+    "truncated": 0,
+    "strict_json": 0,
+    "recovered_by": {
+      "fence": 100
+    }
+  },
+  "samples": [
+    {
+      "recovered_by": "fence",
+      "n_parsed": 12,
+      "response_chars": 266
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 10,
+      "response_chars": 219
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 12,
+      "response_chars": 221
+    }
+  ],
+  "samples_raw": "outputs/responses/ablation_samples/03_grounded.json",
+  "diagnosis": "환각 32.2%, 누락 33.7% 로 한쪽에 치우치지 않는다",
+  "elapsed_sec": 122.2,
+  "note": "audit 분할로만 평가. main 분할은 최종 1회만 본다."
+}

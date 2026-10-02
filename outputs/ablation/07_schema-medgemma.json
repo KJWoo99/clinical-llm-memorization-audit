@@ -1,0 +1,52 @@
+{
+  "id": 7,
+  "name": "schema-medgemma",
+  "parent": 1,
+  "hypothesis": "프롬프트 순위가 모델을 바꿔도 유지되는지 본다. 한 모델에서만 본 축은 그 모델의 성질일 수 있다",
+  "change": "model gemma3-4b -> medgemma-4b (같은 프롬프트)",
+  "config": {
+    "model": "medgemma-4b",
+    "precision": "bf16",
+    "variant": "schema",
+    "max_new_tokens": 512,
+    "batch": 8,
+    "decoding": "greedy",
+    "split": "audit/normal",
+    "n_notes": 100
+  },
+  "result": {
+    "micro_f1": 0.6793103448275861,
+    "ci_low": 0.5837148015636388,
+    "ci_high": 0.7684353131933777,
+    "precision": 0.6985815602836879,
+    "recall": 0.6610738255033557,
+    "parse_failures": 4,
+    "truncated": 4,
+    "strict_json": 0,
+    "recovered_by": {
+      "fence": 96,
+      "failed": 4
+    }
+  },
+  "samples": [
+    {
+      "recovered_by": "fence",
+      "n_parsed": 12,
+      "response_chars": 278
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 11,
+      "response_chars": 273
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 9,
+      "response_chars": 175
+    }
+  ],
+  "samples_raw": "outputs/responses/ablation_samples/07_schema-medgemma.json",
+  "diagnosis": "환각 30.1%, 누락 33.9% 로 한쪽에 치우치지 않는다",
+  "elapsed_sec": 177.0,
+  "note": "audit 분할로만 평가. main 분할은 최종 1회만 본다."
+}

@@ -1,0 +1,51 @@
+{
+  "id": 6,
+  "name": "max-tokens-256",
+  "parent": 1,
+  "hypothesis": "약 목록이 길면 512 토큰도 모자랄 수 있다. 절반으로 줄여 잘림이 실제로 점수를 깎는 구간인지 본다",
+  "change": "max_new_tokens 512 -> 256",
+  "config": {
+    "model": "gemma3-4b",
+    "precision": "bf16",
+    "variant": "schema",
+    "max_new_tokens": 256,
+    "batch": 8,
+    "decoding": "greedy",
+    "split": "audit/normal",
+    "n_notes": 100
+  },
+  "result": {
+    "micro_f1": 0.8850638534147696,
+    "ci_low": 0.8540389731379607,
+    "ci_high": 0.9126762883727406,
+    "precision": 0.8787210584343991,
+    "recall": 0.8914988814317674,
+    "parse_failures": 0,
+    "truncated": 0,
+    "strict_json": 0,
+    "recovered_by": {
+      "fence": 100
+    }
+  },
+  "samples": [
+    {
+      "recovered_by": "fence",
+      "n_parsed": 12,
+      "response_chars": 278
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 15,
+      "response_chars": 276
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 11,
+      "response_chars": 177
+    }
+  ],
+  "samples_raw": "outputs/responses/ablation_samples/06_max-tokens-256.json",
+  "diagnosis": "환각 12.1%, 누락 10.9% 로 한쪽에 치우치지 않는다",
+  "elapsed_sec": 100.4,
+  "note": "audit 분할로만 평가. main 분할은 최종 1회만 본다."
+}

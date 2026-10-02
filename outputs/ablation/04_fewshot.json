@@ -1,0 +1,52 @@
+{
+  "id": 4,
+  "name": "fewshot",
+  "parent": 1,
+  "hypothesis": "형식이 아니라 무엇을 뽑아야 하는지를 예로 보이면 입원 투약과 퇴원약을 섞는 실수가 줄 것",
+  "change": "variant schema -> fewshot (탐색적 변형)",
+  "config": {
+    "model": "gemma3-4b",
+    "precision": "bf16",
+    "variant": "fewshot",
+    "max_new_tokens": 512,
+    "batch": 8,
+    "decoding": "greedy",
+    "split": "audit/normal",
+    "n_notes": 100
+  },
+  "result": {
+    "micro_f1": 0.8759376803231391,
+    "ci_low": 0.8482055970959288,
+    "ci_high": 0.9003190770728687,
+    "precision": 0.9046483909415971,
+    "recall": 0.8489932885906041,
+    "parse_failures": 0,
+    "truncated": 0,
+    "strict_json": 6,
+    "recovered_by": {
+      "fence": 94,
+      "strict": 6
+    }
+  },
+  "samples": [
+    {
+      "recovered_by": "fence",
+      "n_parsed": 12,
+      "response_chars": 240
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 9,
+      "response_chars": 181
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 11,
+      "response_chars": 171
+    }
+  ],
+  "samples_raw": "outputs/responses/ablation_samples/04_fewshot.json",
+  "diagnosis": "누락이 환각보다 많다(누락 15.1%, 환각 9.5%): 있는 약을 빠뜨린다",
+  "elapsed_sec": 82.4,
+  "note": "audit 분할로만 평가. main 분할은 최종 1회만 본다."
+}

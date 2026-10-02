@@ -1,0 +1,51 @@
+{
+  "id": 2,
+  "name": "minimal",
+  "parent": 1,
+  "hypothesis": "지시를 줄이면 형식 준수가 떨어지는 대신 예시에 끌려가지 않아 회수가 오를 수 있다",
+  "change": "variant schema -> minimal",
+  "config": {
+    "model": "gemma3-4b",
+    "precision": "bf16",
+    "variant": "minimal",
+    "max_new_tokens": 512,
+    "batch": 8,
+    "decoding": "greedy",
+    "split": "audit/normal",
+    "n_notes": 100
+  },
+  "result": {
+    "micro_f1": 0.4878599661208357,
+    "ci_low": 0.39668990298239304,
+    "ci_high": 0.5840533901672507,
+    "precision": 0.4925883694412771,
+    "recall": 0.48322147651006714,
+    "parse_failures": 0,
+    "truncated": 0,
+    "strict_json": 0,
+    "recovered_by": {
+      "fence": 100
+    }
+  },
+  "samples": [
+    {
+      "recovered_by": "fence",
+      "n_parsed": 12,
+      "response_chars": 286
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 11,
+      "response_chars": 236
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 11,
+      "response_chars": 201
+    }
+  ],
+  "samples_raw": "outputs/responses/ablation_samples/02_minimal.json",
+  "diagnosis": "환각 50.7%, 누락 51.7% 로 한쪽에 치우치지 않는다",
+  "elapsed_sec": 135.6,
+  "note": "audit 분할로만 평가. main 분할은 최종 1회만 본다."
+}

@@ -1,0 +1,52 @@
+{
+  "id": 5,
+  "name": "terse",
+  "parent": 2,
+  "hypothesis": "#2 에서 지시를 줄여도 괜찮았다면 한 문장까지 줄여도 되는지 본다. 무너지는 지점을 찾는 것이 목적",
+  "change": "variant schema -> terse (탐색적 변형)",
+  "config": {
+    "model": "gemma3-4b",
+    "precision": "bf16",
+    "variant": "terse",
+    "max_new_tokens": 512,
+    "batch": 8,
+    "decoding": "greedy",
+    "split": "audit/normal",
+    "n_notes": 100
+  },
+  "result": {
+    "micro_f1": 0.11013767209011265,
+    "ci_low": 0.07676496759014437,
+    "ci_high": 0.1489736992364827,
+    "precision": 0.125,
+    "recall": 0.09843400447427293,
+    "parse_failures": 16,
+    "truncated": 16,
+    "strict_json": 0,
+    "recovered_by": {
+      "fence": 84,
+      "failed": 16
+    }
+  },
+  "samples": [
+    {
+      "recovered_by": "fence",
+      "n_parsed": 12,
+      "response_chars": 503
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 11,
+      "response_chars": 493
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 11,
+      "response_chars": 381
+    }
+  ],
+  "samples_raw": "outputs/responses/ablation_samples/05_terse.json",
+  "diagnosis": "출력 형식 실패가 잦다(16/100): 점수가 낮은 이유가 추출이 아니라 형식이다",
+  "elapsed_sec": 229.5,
+  "note": "audit 분할로만 평가. main 분할은 최종 1회만 본다."
+}

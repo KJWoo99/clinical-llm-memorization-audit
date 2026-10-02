@@ -1,0 +1,51 @@
+{
+  "id": 1,
+  "name": "schema",
+  "parent": 0,
+  "hypothesis": "기준선. 형식과 예시를 함께 준 변형이 가장 무난할 것",
+  "change": "없음(기준선)",
+  "config": {
+    "model": "gemma3-4b",
+    "precision": "bf16",
+    "variant": "schema",
+    "max_new_tokens": 512,
+    "batch": 8,
+    "decoding": "greedy",
+    "split": "audit/normal",
+    "n_notes": 100
+  },
+  "result": {
+    "micro_f1": 0.8850638534147696,
+    "ci_low": 0.8540389731379607,
+    "ci_high": 0.9126762883727406,
+    "precision": 0.8787210584343991,
+    "recall": 0.8914988814317674,
+    "parse_failures": 0,
+    "truncated": 0,
+    "strict_json": 0,
+    "recovered_by": {
+      "fence": 100
+    }
+  },
+  "samples": [
+    {
+      "recovered_by": "fence",
+      "n_parsed": 12,
+      "response_chars": 278
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 15,
+      "response_chars": 276
+    },
+    {
+      "recovered_by": "fence",
+      "n_parsed": 11,
+      "response_chars": 177
+    }
+  ],
+  "samples_raw": "outputs/responses/ablation_samples/01_schema.json",
+  "diagnosis": "환각 12.1%, 누락 10.9% 로 한쪽에 치우치지 않는다",
+  "elapsed_sec": 101.2,
+  "note": "audit 분할로만 평가. main 분할은 최종 1회만 본다."
+}
