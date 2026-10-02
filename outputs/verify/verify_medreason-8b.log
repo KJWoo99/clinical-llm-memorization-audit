@@ -1,0 +1,15 @@
+모델 MedReason 8B (의료, UCSC)
+모델 로딩 (bf16)...
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<02:23,  2.02it/s]Loading weights:   3%|▎         | 10/291 [00:00<00:13, 21.40it/s]Loading weights:   7%|▋         | 19/291 [00:00<00:07, 37.39it/s]Loading weights:  10%|▉         | 28/291 [00:00<00:05, 50.45it/s]Loading weights:  13%|█▎        | 37/291 [00:00<00:04, 60.46it/s]Loading weights:  16%|█▌        | 46/291 [00:01<00:03, 67.34it/s]Loading weights:  19%|█▉        | 55/291 [00:01<00:03, 72.89it/s]Loading weights:  22%|██▏       | 64/291 [00:01<00:02, 76.96it/s]Loading weights:  25%|██▌       | 73/291 [00:01<00:02, 79.83it/s]Loading weights:  28%|██▊       | 82/291 [00:01<00:02, 80.36it/s]Loading weights:  31%|███▏      | 91/291 [00:01<00:02, 80.93it/s]Loading weights:  34%|███▍      | 100/291 [00:01<00:02, 81.96it/s]Loading weights:  37%|███▋      | 109/291 [00:01<00:02, 82.45it/s]Loading weights:  41%|████      | 118/291 [00:01<00:02, 82.25it/s]Loading weights:  44%|████▎     | 127/291 [00:01<00:02, 81.88it/s]Loading weights:  47%|████▋     | 136/291 [00:02<00:01, 81.48it/s]Loading weights:  50%|████▉     | 145/291 [00:02<00:01, 82.38it/s]Loading weights:  53%|█████▎    | 154/291 [00:02<00:01, 83.48it/s]Loading weights:  56%|█████▌    | 163/291 [00:02<00:01, 83.43it/s]Loading weights:  59%|█████▉    | 172/291 [00:02<00:01, 82.76it/s]Loading weights:  62%|██████▏   | 181/291 [00:02<00:01, 82.55it/s]Loading weights:  65%|██████▌   | 190/291 [00:02<00:01, 83.87it/s]Loading weights:  68%|██████▊   | 199/291 [00:02<00:01, 83.69it/s]Loading weights:  71%|███████▏  | 208/291 [00:02<00:00, 84.29it/s]Loading weights:  75%|███████▍  | 217/291 [00:03<00:00, 85.11it/s]Loading weights:  78%|███████▊  | 226/291 [00:03<00:00, 85.71it/s]Loading weights:  81%|████████  | 235/291 [00:03<00:00, 85.41it/s]Loading weights:  84%|████████▍ | 244/291 [00:03<00:00, 85.98it/s]Loading weights:  87%|████████▋ | 253/291 [00:03<00:00, 86.38it/s]Loading weights:  90%|█████████ | 262/291 [00:03<00:00, 85.27it/s]Loading weights:  93%|█████████▎| 271/291 [00:03<00:00, 84.00it/s]Loading weights:  96%|█████████▌| 280/291 [00:03<00:00, 83.72it/s]Loading weights:  99%|█████████▉| 289/291 [00:03<00:00, 83.60it/s]Loading weights: 100%|██████████| 291/291 [00:03<00:00, 74.45it/s]
+  9초
+  [select] 300행, 묶음 6개(12행) 검사, 남은 묶음 6개
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+    묶음 1/6  normal         배치 2  일치 2/2  (24초)
+    묶음 2/6  normal         배치 2  일치 2/2  (28초)
+    묶음 3/6  normal         배치 2  일치 2/2  (23초)
+    묶음 4/6  normal         배치 2  일치 2/2  (34초)
+    묶음 5/6  normal         배치 2  일치 2/2  (35초)
+    묶음 6/6  normal         배치 2  일치 2/2  (31초)
+  [select] 누적 12건 중 일치 12건, 불일치 0건
+
+합계 12건 중 일치 12건

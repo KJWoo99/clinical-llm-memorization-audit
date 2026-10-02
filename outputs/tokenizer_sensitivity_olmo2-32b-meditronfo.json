@@ -1,0 +1,89 @@
+{
+  "model": "olmo2-32b-meditronfo",
+  "shipped_tokenizer": "EPFLiGHT/OLMo-2-32B-MeditronFO",
+  "base_tokenizer": "allenai/OLMo-2-0325-32B-Instruct",
+  "n_rows_common": 300,
+  "n_rows_both_within_context": 214,
+  "n_excluded_context_shipped": 86,
+  "n_excluded_context_base_tokenizer": 54,
+  "input_tokens_ratio_shipped_over_base": 1.086058325045706,
+  "by_variant": {
+    "grounded": {
+      "n_rows": 68,
+      "f1_shipped": 0.7136150234741784,
+      "f1_base_tokenizer": 0.2587412587412587,
+      "diff_base_minus_shipped": -0.4548737647329197,
+      "ci_low": -0.5824263653978258,
+      "ci_high": -0.3295544995496009,
+      "identical_responses": 11,
+      "parse_failures_shipped": 0,
+      "parse_failures_base_tokenizer": 0
+    },
+    "minimal": {
+      "n_rows": 76,
+      "f1_shipped": 0.8311488049344641,
+      "f1_base_tokenizer": 0.8161708619374524,
+      "diff_base_minus_shipped": -0.014977942997011717,
+      "ci_low": -0.09670098913409217,
+      "ci_high": 0.05879665402143474,
+      "identical_responses": 48,
+      "parse_failures_shipped": 0,
+      "parse_failures_base_tokenizer": 0
+    },
+    "schema": {
+      "n_rows": 70,
+      "f1_shipped": 0.9267886855241264,
+      "f1_base_tokenizer": 0.9394190871369293,
+      "diff_base_minus_shipped": 0.012630401612802933,
+      "ci_low": 0.0017225211945684853,
+      "ci_high": 0.02587917274882349,
+      "identical_responses": 25,
+      "parse_failures_shipped": 0,
+      "parse_failures_base_tokenizer": 0
+    }
+  },
+  "selected_variant_shipped": "schema",
+  "selected_variant_base_tokenizer": "schema",
+  "rule": "차이 95% 구간이 0 을 포함하지 않고 |차이| >= 0.02, 또는 선택 변형이 바뀜",
+  "triggers_followup": true,
+  "final": {
+    "partner": "olmo2-32b",
+    "variant": "schema",
+    "split": "main/normal",
+    "n_notes_common": 133,
+    "n_notes_within_context": {
+      "shipped": 133,
+      "base_tokenizer": 148,
+      "partner": 148
+    },
+    "f1": {
+      "meditronfo_shipped": 0.9122315592903829,
+      "meditronfo_base_tokenizer": 0.9101907864122847,
+      "partner": 0.8674698795180721
+    },
+    "pair8_shipped_minus_partner": {
+      "diff": 0.044761679772310825,
+      "ci": [
+        0.024087592334631223,
+        0.06941254091348968
+      ],
+      "significant": true
+    },
+    "pair8_base_tokenizer_minus_partner": {
+      "diff": 0.042720906894212596,
+      "ci": [
+        0.01982692407556245,
+        0.06735600111333193
+      ],
+      "significant": true
+    },
+    "base_tokenizer_minus_shipped": {
+      "diff": -0.0020407728780982293,
+      "ci": [
+        -0.01864084625101217,
+        0.012726412557547105
+      ],
+      "significant": false
+    }
+  }
+}

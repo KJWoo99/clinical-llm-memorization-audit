@@ -1,0 +1,16 @@
+모델 Apertus 8B Instruct (기반)
+모델 로딩 (bf16)...
+[transformers] CUDA-fused xIELU not available (No module named 'xielu') – falling back to a Python version.
+For CUDA xIELU (experimental), `pip install git+https://github.com/nickjbrowning/XIELU`
+Loading weights:   0%|          | 0/451 [00:00<?, ?it/s]Loading weights:   0%|          | 1/451 [00:00<01:50,  4.07it/s]Loading weights:   0%|          | 2/451 [00:00<01:54,  3.93it/s]Loading weights:   3%|▎         | 15/451 [00:00<00:12, 34.39it/s]Loading weights:   6%|▌         | 27/451 [00:00<00:07, 56.10it/s]Loading weights:   9%|▉         | 41/451 [00:00<00:05, 77.17it/s]Loading weights:  12%|█▏        | 55/451 [00:00<00:04, 92.92it/s]Loading weights:  15%|█▌        | 69/451 [00:01<00:03, 105.13it/s]Loading weights:  18%|█▊        | 83/451 [00:01<00:03, 112.53it/s]Loading weights:  22%|██▏       | 97/451 [00:01<00:02, 118.56it/s]Loading weights:  25%|██▍       | 111/451 [00:01<00:02, 123.70it/s]Loading weights:  28%|██▊       | 125/451 [00:01<00:02, 126.56it/s]Loading weights:  31%|███       | 139/451 [00:01<00:02, 124.42it/s]Loading weights:  34%|███▎      | 152/451 [00:01<00:02, 124.22it/s]Loading weights:  37%|███▋      | 167/451 [00:01<00:02, 129.30it/s]Loading weights:  40%|████      | 181/451 [00:01<00:02, 130.00it/s]Loading weights:  43%|████▎     | 195/451 [00:01<00:01, 130.43it/s]Loading weights:  46%|████▋     | 209/451 [00:02<00:01, 128.77it/s]Loading weights:  49%|████▉     | 223/451 [00:02<00:01, 129.75it/s]Loading weights:  53%|█████▎    | 237/451 [00:02<00:01, 131.73it/s]Loading weights:  56%|█████▌    | 251/451 [00:02<00:01, 131.10it/s]Loading weights:  59%|█████▉    | 265/451 [00:02<00:01, 130.39it/s]Loading weights:  62%|██████▏   | 279/451 [00:02<00:01, 131.68it/s]Loading weights:  65%|██████▍   | 293/451 [00:02<00:01, 132.11it/s]Loading weights:  68%|██████▊   | 307/451 [00:02<00:01, 131.80it/s]Loading weights:  71%|███████   | 321/451 [00:02<00:01, 128.45it/s]Loading weights:  74%|███████▍  | 334/451 [00:03<00:00, 126.70it/s]Loading weights:  77%|███████▋  | 347/451 [00:03<00:00, 121.09it/s]Loading weights:  80%|███████▉  | 360/451 [00:03<00:00, 120.93it/s]Loading weights:  83%|████████▎ | 374/451 [00:03<00:00, 122.40it/s]Loading weights:  86%|████████▌ | 388/451 [00:03<00:00, 124.95it/s]Loading weights:  89%|████████▉ | 402/451 [00:03<00:00, 127.63it/s]Loading weights:  92%|█████████▏| 415/451 [00:03<00:00, 124.03it/s]Loading weights:  95%|█████████▌| 430/451 [00:03<00:00, 128.16it/s]Loading weights:  98%|█████████▊| 444/451 [00:03<00:00, 127.46it/s]Loading weights: 100%|██████████| 451/451 [00:03<00:00, 113.59it/s]
+  8초
+  [select] 300행, 묶음 6개(12행) 검사, 남은 묶음 6개
+    묶음 1/6  normal         배치 2  일치 2/2  (3초)
+    묶음 2/6  normal         배치 2  일치 2/2  (4초)
+    묶음 3/6  normal         배치 2  일치 2/2  (3초)
+    묶음 4/6  normal         배치 2  일치 2/2  (7초)
+    묶음 5/6  normal         배치 2  일치 2/2  (7초)
+    묶음 6/6  normal         배치 2  일치 2/2  (4초)
+  [select] 누적 12건 중 일치 12건, 불일치 0건
+
+합계 12건 중 일치 12건
