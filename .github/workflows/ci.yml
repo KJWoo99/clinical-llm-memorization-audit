@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      # MIMIC-IV-Note 원본과 LLM 가중치는 CI 에 두지 않는다(DUA, 용량).
+      # 테스트는 정답 파서, 채점 규칙, JSON 복구를 합성 노트로 검증한다.
+      #
+      # 테스트는 `src` 와 함께 `scripts` 의 일부도 임포트한다. 재현 검증 테스트가 가져오는
+      # scripts/verify_reproducibility.py 가 polars 를 쓰므로 polars 도 설치한다(없으면 수집
+      # 단계에서 멈춘다).
+      # ruff 는 정적 분석이라 임포트 없이도 돈다.
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          # 버전을 고정한다. 고정하지 않으면 CI 가 environment.yml 과 다른 판으로
+          # 검사해, 통과가 이 환경에서의 통과를 보장하지 않는다(ruff 는 판이 바뀌면
+          # 규칙이 달라진다). 값은 environment.yml 과 같게 유지할 것.
+          pip install numpy==2.5.2 polars==1.43.2 pytest==9.1.1 ruff==0.9.4
+
+      - name: Ruff lint
+        run: ruff check src scripts tests
+
+      - name: Pytest
+        run: pytest -q

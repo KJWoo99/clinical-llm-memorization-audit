@@ -1,0 +1,36 @@
+name: cltext
+channels:
+  - conda-forge
+dependencies:
+  # numpy 2.5.x 가 python>=3.12 를 요구한다.
+  - python=3.13
+  - pip
+  - pip:
+      # 데이터 처리
+      - polars==1.43.2
+      - pyarrow==25.0.1
+      - pandas==3.0.5
+      - numpy==2.5.2
+      # 로컬 LLM 추론. 정밀도는 모델마다 다르다(src/models.py 의 precision).
+      # 24GB 에 들어가는 모델은 bf16, 27B 는 4비트 양자화를 쓴다.
+      # torch 는 CUDA 휠이라 별도 인덱스에서 받아야 한다. 이 저장소는
+      # 이 머신에서 동작이 확인된 조합을 쓴다:
+      #   pip install torch==2.14.0+cu132 --index-url https://download.pytorch.org/whl/cu132
+      - transformers==5.15.1
+      # download_llm_models.py 가 snapshot_download 를 직접 쓴다.
+      # transformers 가 끌어오긴 하지만, 직접 임포트하는 코드가 있으면
+      # 그 버전에 기대지 않도록 명시한다.
+      - huggingface_hub==1.29.0
+      - accelerate==1.14.0
+      - bitsandbytes==0.50.2
+      - safetensors==0.8.0
+      - sentencepiece
+      # 평가, 리포트
+      - scikit-learn==1.9.0
+      - scipy==1.18.0
+      - matplotlib==3.11.1
+      # 개발
+      - pytest==9.1.1
+      # 선언끼리 모순되는지 검사할 때 버전 조건을 파싱한다
+      - packaging==26.3
+      - ruff==0.9.4

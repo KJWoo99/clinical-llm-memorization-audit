@@ -1,0 +1,20 @@
+{
+  "mode": "random25000",
+  "seed": 20260822,
+  "total_notes": 331793,
+  "n_notes": 25000,
+  "n_patients": 21543,
+  "section_rate": 0.97952,
+  "item_rate": 0.94128,
+  "section_without_items": 956,
+  "mentions": 252134,
+  "unique_names": 4858,
+  "vocab_match_mentions": 0.9660616973514083,
+  "vocab_match_unique": 0.46747632770687525,
+  "defect_names": 0,
+  "too_long_names": 0,
+  "form_named": 131,
+  "form_named_unresolved": 48,
+  "singleton_names": 2259,
+  "passed": true
+}

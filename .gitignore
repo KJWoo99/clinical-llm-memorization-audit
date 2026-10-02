@@ -1,0 +1,114 @@
+# =====================================================================
+# PhysioNet DUA 차단 규칙: 절대 완화하지 말 것
+# Credentialed Health Data License 1.5.0
+#   - 데이터 및 파생물(derived data)의 공개 저장소 재배포 금지
+#   - 전처리 CSV, 크롭 이미지, Grad-CAM 오버레이 PNG 전부 파생물에 해당
+# 이 파일이 뚫리면 되돌릴 수 없다. 백스톱으로 .git/hooks/pre-commit 도 있음.
+# =====================================================================
+
+# --- 데이터 디렉터리 전체 (최우선) ---
+data/
+!data/.gitkeep
+!data/**/.gitkeep
+
+# --- 학습 산출물 ---
+outputs/models/
+experiments/mlruns/
+experiments/artifacts/
+experiments/**/artifacts/
+experiments/mlflow.db
+experiments/mlflow.db-*
+*.pt
+*.pth
+*.onnx
+*.engine
+*.ckpt
+*.safetensors
+
+# --- MIMIC 원본 파일 패턴 (경로 무관 전역 차단) ---
+*.csv
+*.csv.gz
+*.parquet
+*.dcm
+*.jpg
+*.jpeg
+*.png
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.db
+*.sqlite
+*.sqlite3
+IMAGE_FILENAMES
+cxr-record-list*
+cxr-study-list*
+mimic-cxr-*
+admissions*
+patients*
+labevents*
+prescriptions*
+diagnoses_icd*
+
+# --- 예외: 공개 가능한 집계 결과만 화이트리스트로 되살림 ---
+# (추가 시 반드시 내용 확인 후 - 환자 단위 정보가 없어야 함)
+!outputs/reports/*.md
+!docs/**/*.png
+
+# --- 자격증명 ---
+.env
+.netrc
+*_password*
+*credential*
+.physionet*
+
+# --- 파이썬 ---
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# --- 에디터/OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- 이 저장소 고유: MIMIC 노트에서 파생된 산출물 ---
+# 모델 응답 JSONL 은 노트에서 뽑은 약물 목록을 담는다. 환자 단위로 되돌릴 수
+# 있는 파생 데이터이므로 PhysioNet DUA 상 저장소에 넣으면 안 된다.
+*.jsonl
+outputs/responses/
+# 약물 빈도표는 집계이긴 하나 1회만 등장하는 약물이 1,786종이라 특정 노트와
+# 연결될 여지가 있다. 원자료에서 10분이면 다시 만들 수 있으므로 넣지 않는다.
+outputs/phase1_drug_frequency.json
+# 모델 성능 지표만 담긴 결과 요약은 예외로 허용한다(원자료가 들어가지 않는다).
+!outputs/phase4_results.json
+!outputs/phase3_selected_prompts.json
+
+# --- 도구, 실행 부산물 ---
+# .coverage 는 pytest 커버리지 SQLite DB 로, 절대경로가 박혀 있고 실행마다 바뀐다.
+.coverage
+.coverage.*
+htmlcov/
+# 에디터 플러그인이 남기는 런타임 상태: 프로젝트 내용이 아니다.
+.bkit/
+
+# 재실행 대조용 임시 백업
+outputs/_before_*/
+# 옛 산출물 보관은 폴더뿐 아니라 파일로도 남는다
+outputs/_before_*
+
+# 배치 동등성, 단어 중간 종료 조사 로그. note_id 와 모델 응답 조각(노트의 처방 줄을 옮긴 것)이
+# 들어 있어 응답 JSONL 과 같은 파생물이다. 서버에만 남긴다.
+outputs/batch_equivalence_*.log
+outputs/verify/lingshu_cut_probe.*
+
+# 실행 로그는 올리지 않는다. 수치는 결과 JSON 에 있고, 로그에는 서버 경로와 경고가
+# 섞여 있다. 로그는 서버에 남긴다.
+*.log
+# 재현 검증 로그만 올린다. 문서의 재현 검증(불일치 0) 수치는 이 로그가 유일한 근거다.
+!outputs/verify/verify_*.log

@@ -1,0 +1,21 @@
+[project]
+name = "clinical-text-llm"
+version = "0.1.0"
+requires-python = ">=3.13"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4", "RET", "ARG", "PTH"]
+ignore = [
+    "UP038",   # isinstance(x, A | B) 강제: ruff v0.10(2025-03)에서 폐기, 제거된 규칙이다.
+               # 파이프 문법이 튜플보다 3배 느리고(500ns vs 160ns) 관용구도 아니다.
+               # 우리 ruff 가 0.9.4 라 아직 살아 있어 명시적으로 끈다.
+    "E501", "B905",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
