@@ -1,0 +1,1390 @@
+{
+  "stub": false,
+  "baseline": {
+    "k": 10,
+    "micro_f1": 0.22026196204223472,
+    "drugs": [
+      "acetaminophen",
+      "docusate sodium",
+      "aspirin",
+      "senna",
+      "oxycodone",
+      "omeprazole",
+      "atorvastatin",
+      "lisinopril",
+      "vitamin d",
+      "furosemide"
+    ]
+  },
+  "models": {
+    "apertus-8b": {
+      "label": "Apertus 8B Instruct (기반)",
+      "medical": false,
+      "family": "apertus-8b",
+      "normal": {
+        "precision": 0.8397790055248618,
+        "recall": 0.7853042479908151,
+        "micro_f1": 0.8116285968555325,
+        "ci": [
+          0.7653712260614735,
+          0.8584322607212189
+        ]
+      },
+      "hallucination_rate": 0.16022099447513813,
+      "omission_rate": 0.21469575200918484,
+      "json_compliance": 0.995,
+      "condition_micro_f1": {
+        "empty": 0.0746039856923863,
+        "no_section": 0.37865497076023386,
+        "normal": 0.8116285968555325,
+        "other_patient": 0.10232558139534884,
+        "shuffled": 0.5371642723297938
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.08423186711442578,
+        "other_patient_ratio_vs_normal": 0.11553102283352938,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.8856978747846066,
+        "main_normal_f1": 0.8116285968555325,
+        "denominator_selection_bias": {
+          "variant": "minimal",
+          "f1_by_variant": {
+            "grounded": 0.8176656151419558,
+            "minimal": 0.8856978747846066,
+            "schema": 0.8450536352800952
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          6,
+          12
+        ],
+        "10~99회": [
+          24,
+          37
+        ],
+        "100~999회": [
+          96,
+          132
+        ],
+        "1000회 이상": [
+          1242,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "strict": 507,
+        "failed": 8,
+        "fence": 85
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 65536,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "apertus-8b-meditronfo": {
+      "label": "Apertus 8B MeditronFO (의료, EPFL)",
+      "medical": true,
+      "family": "apertus-8b",
+      "normal": {
+        "precision": 0.7993377483443709,
+        "recall": 0.6928817451205511,
+        "micro_f1": 0.7423124231242313,
+        "ci": [
+          0.6941400113821073,
+          0.7919628081446821
+        ]
+      },
+      "hallucination_rate": 0.20066225165562915,
+      "omission_rate": 0.3071182548794489,
+      "json_compliance": 0.075,
+      "condition_micro_f1": {
+        "empty": 0.07744107744107744,
+        "no_section": 0.3775811209439528,
+        "normal": 0.7423124231242313,
+        "other_patient": 0.09354647720544702,
+        "shuffled": 0.5325119780971937
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.09387641402029889,
+        "other_patient_ratio_vs_normal": 0.1133998662526462,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.8249258160237389,
+        "main_normal_f1": 0.7423124231242313,
+        "denominator_selection_bias": {
+          "variant": "schema",
+          "f1_by_variant": {
+            "grounded": 0.043715846994535526,
+            "minimal": 0.5982478097622028,
+            "schema": 0.8249258160237389
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          5,
+          12
+        ],
+        "10~99회": [
+          20,
+          37
+        ],
+        "100~999회": [
+          79,
+          132
+        ],
+        "1000회 이상": [
+          1103,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "fence": 436,
+        "strict": 48,
+        "failed": 46,
+        "embedded_array": 70
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 65536,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "baichuan-m2-32b": {
+      "label": "Baichuan-M2 32B (의료)",
+      "medical": true,
+      "family": "qwen25-32b",
+      "normal": {
+        "precision": 0.9476082004555809,
+        "recall": 0.9552238805970149,
+        "micro_f1": 0.9514008004574043,
+        "ci": [
+          0.9388359644979202,
+          0.9624871327831511
+        ]
+      },
+      "hallucination_rate": 0.05239179954441914,
+      "omission_rate": 0.04477611940298507,
+      "json_compliance": 1.0,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.46571428571428575,
+        "normal": 0.9514008004574043,
+        "other_patient": 0.11383928571428573,
+        "shuffled": 0.862125340599455
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.11888700200033339,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.9575418994413408,
+        "main_normal_f1": 0.9514008004574043,
+        "denominator_selection_bias": {
+          "variant": "grounded",
+          "f1_by_variant": {
+            "grounded": 0.9575418994413408,
+            "minimal": 0.9474860335195532,
+            "schema": 0.9541899441340782
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 무관",
+      "recall_by_rarity": {
+        "10회 미만": [
+          3,
+          12
+        ],
+        "10~99회": [
+          27,
+          37
+        ],
+        "100~999회": [
+          117,
+          132
+        ],
+        "1000회 이상": [
+          1517,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "strict": 600
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 131072,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "gemma3-27b": {
+      "label": "Gemma 3 27B Instruct (기반)",
+      "medical": false,
+      "family": "gemma-27b",
+      "normal": {
+        "precision": 0.9182282793867121,
+        "recall": 0.9282433983926521,
+        "micro_f1": 0.9232086782757636,
+        "ci": [
+          0.8961159864569909,
+          0.9453294191187107
+        ]
+      },
+      "hallucination_rate": 0.0817717206132879,
+      "omission_rate": 0.07175660160734787,
+      "json_compliance": 0.8,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.5277777777777778,
+        "normal": 0.9232086782757636,
+        "other_patient": 0.11278615298715802,
+        "shuffled": 0.7824742268041237
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.11960143000415452,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.9430167597765364,
+        "main_normal_f1": 0.9232086782757636,
+        "denominator_selection_bias": {
+          "variant": "minimal",
+          "f1_by_variant": {
+            "grounded": 0.9400000000000001,
+            "minimal": 0.9430167597765364,
+            "schema": 0.9286109573879358
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          4,
+          12
+        ],
+        "10~99회": [
+          23,
+          37
+        ],
+        "100~999회": [
+          116,
+          132
+        ],
+        "1000회 이상": [
+          1474,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "fence": 117,
+        "strict": 481,
+        "embedded_array": 2
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 131072,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "gemma3-27b-meditronfo": {
+      "label": "Gemma 3 27B MeditronFO (의료, EPFL)",
+      "medical": true,
+      "family": "gemma-27b",
+      "normal": {
+        "precision": 0.9210526315789473,
+        "recall": 0.9242250287026407,
+        "micro_f1": 0.9226361031518626,
+        "ci": [
+          0.9036444552550597,
+          0.9402393341237207
+        ]
+      },
+      "hallucination_rate": 0.07894736842105263,
+      "omission_rate": 0.07577497129735936,
+      "json_compliance": 1.0,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.4173228346456692,
+        "normal": 0.9226361031518626,
+        "other_patient": 0.11203549639489739,
+        "shuffled": 0.8370607028753994
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.1189055975889241,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.9422222222222223,
+        "main_normal_f1": 0.9226361031518626,
+        "denominator_selection_bias": {
+          "variant": "grounded",
+          "f1_by_variant": {
+            "grounded": 0.9422222222222223,
+            "minimal": 0.9413735343383585,
+            "schema": 0.9283731260410882
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          3,
+          12
+        ],
+        "10~99회": [
+          24,
+          37
+        ],
+        "100~999회": [
+          111,
+          132
+        ],
+        "1000회 이상": [
+          1472,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "strict": 600
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 131072,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "gemma3-4b": {
+      "label": "Gemma 3 4B (기반)",
+      "medical": false,
+      "family": "gemma-4b",
+      "normal": {
+        "precision": 0.8621667612024957,
+        "recall": 0.8725602755453502,
+        "micro_f1": 0.8673323823109842,
+        "ci": [
+          0.8417600349240631,
+          0.8905582058740702
+        ]
+      },
+      "hallucination_rate": 0.13783323879750425,
+      "omission_rate": 0.12743972445464982,
+      "json_compliance": 0.01,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.526953361599031,
+        "normal": 0.8673323823109842,
+        "other_patient": 0.11209766925638179,
+        "shuffled": 0.7371541501976283
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.12644392052884218,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.8865406006674083,
+        "main_normal_f1": 0.8673323823109842,
+        "denominator_selection_bias": {
+          "variant": "schema",
+          "f1_by_variant": {
+            "grounded": 0.6719546742209631,
+            "minimal": 0.49321266968325794,
+            "schema": 0.8865406006674083
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          4,
+          12
+        ],
+        "10~99회": [
+          24,
+          37
+        ],
+        "100~999회": [
+          107,
+          132
+        ],
+        "1000회 이상": [
+          1385,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "fence": 493,
+        "strict": 106,
+        "failed": 1
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 131072,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "huatuo-o1-8b": {
+      "label": "HuatuoGPT-o1 8B (의료, Huatuo)",
+      "medical": true,
+      "family": "llama31-8b",
+      "normal": {
+        "precision": 0.9314660309892729,
+        "recall": 0.8972445464982779,
+        "micro_f1": 0.9140350877192983,
+        "ci": [
+          0.8954530835925896,
+          0.9311871774158895
+        ]
+      },
+      "hallucination_rate": 0.06853396901072706,
+      "omission_rate": 0.10275545350172216,
+      "json_compliance": 0.995,
+      "condition_micro_f1": {
+        "empty": 0.06156405990016639,
+        "no_section": 0.48667122351332875,
+        "normal": 0.9140350877192983,
+        "other_patient": 0.11212814645308924,
+        "shuffled": 0.8022988505747127
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.06705947848051833,
+        "other_patient_ratio_vs_normal": 0.12213708836494429,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.918051575931232,
+        "main_normal_f1": 0.9140350877192983,
+        "denominator_selection_bias": {
+          "variant": "schema",
+          "f1_by_variant": {
+            "grounded": 0.867816091954023,
+            "minimal": 0.7830508474576272,
+            "schema": 0.918051575931232
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          2,
+          12
+        ],
+        "10~99회": [
+          23,
+          37
+        ],
+        "100~999회": [
+          107,
+          132
+        ],
+        "1000회 이상": [
+          1431,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "strict": 498,
+        "failed": 1,
+        "after_reasoning": 100,
+        "embedded_array": 1
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 131072,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "ii-medical-8b": {
+      "label": "II-Medical 8B (의료, 추론특화)",
+      "medical": true,
+      "family": "_unpaired",
+      "normal": {
+        "precision": 0.9099276791584484,
+        "recall": 0.7944890929965557,
+        "micro_f1": 0.8482991112473185,
+        "ci": [
+          0.813069165994629,
+          0.8799779210015256
+        ]
+      },
+      "hallucination_rate": 0.09007232084155162,
+      "omission_rate": 0.20551090700344432,
+      "json_compliance": 0.0,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.34887459807073956,
+        "normal": 0.8482991112473185,
+        "other_patient": 0.10234798314268513,
+        "shuffled": 0.6309103740296401
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.1185721396883482,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.8631705846895721,
+        "main_normal_f1": 0.8482991112473185,
+        "denominator_selection_bias": {
+          "variant": "minimal",
+          "f1_by_variant": {
+            "grounded": 0.7469553450608931,
+            "minimal": 0.8631705846895721,
+            "schema": 0.7739413680781759
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          2,
+          12
+        ],
+        "10~99회": [
+          20,
+          37
+        ],
+        "100~999회": [
+          90,
+          132
+        ],
+        "1000회 이상": [
+          1272,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "after_reasoning": 485,
+        "failed": 106,
+        "embedded_array": 9
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 40960,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "lingshu-7b": {
+      "label": "Lingshu 7B (의료, 알리바바)",
+      "medical": true,
+      "family": "_unpaired",
+      "normal": {
+        "precision": 0.9149821640903686,
+        "recall": 0.883467278989667,
+        "micro_f1": 0.8989485981308412,
+        "ci": [
+          0.874456367720125,
+          0.9200610178673126
+        ]
+      },
+      "hallucination_rate": 0.0850178359096314,
+      "omission_rate": 0.11653272101033295,
+      "json_compliance": 0.99,
+      "condition_micro_f1": {
+        "empty": 0.08375209380234507,
+        "no_section": 0.35275080906148865,
+        "normal": 0.8989485981308412,
+        "other_patient": 0.11389521640091116,
+        "shuffled": 0.7024198822759973
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.08994647237819088,
+        "other_patient_ratio_vs_normal": 0.12231900685599077,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.9311326124075128,
+        "main_normal_f1": 0.8989485981308412,
+        "denominator_selection_bias": {
+          "variant": "schema",
+          "f1_by_variant": {
+            "grounded": 0.8883800801373783,
+            "minimal": 0.8472458830210108,
+            "schema": 0.9311326124075128
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          5,
+          12
+        ],
+        "10~99회": [
+          24,
+          37
+        ],
+        "100~999회": [
+          98,
+          132
+        ],
+        "1000회 이상": [
+          1412,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "strict": 595,
+        "failed": 5
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 128000,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "llama31-8b": {
+      "label": "Llama 3.1 8B Instruct (기반)",
+      "medical": false,
+      "family": "llama31-8b",
+      "normal": {
+        "precision": 0.9216482878699942,
+        "recall": 0.9115958668197475,
+        "micro_f1": 0.9165945165945166,
+        "ci": [
+          0.8918199896176939,
+          0.9367800986839916
+        ]
+      },
+      "hallucination_rate": 0.0783517121300058,
+      "omission_rate": 0.08840413318025259,
+      "json_compliance": 1.0,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.5096434833430742,
+        "normal": 0.9165945165945166,
+        "other_patient": 0.11371237458193979,
+        "shuffled": 0.8173374613003096
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.12071005917159763,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.9420289855072463,
+        "main_normal_f1": 0.9165945165945166,
+        "denominator_selection_bias": {
+          "variant": "schema",
+          "f1_by_variant": {
+            "grounded": 0.9285312324141811,
+            "minimal": 0.8875209848908785,
+            "schema": 0.9420289855072463
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          3,
+          12
+        ],
+        "10~99회": [
+          25,
+          37
+        ],
+        "100~999회": [
+          114,
+          132
+        ],
+        "1000회 이상": [
+          1446,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "strict": 598,
+        "failed": 2
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 131072,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "medgemma-4b": {
+      "label": "MedGemma 1.5 4B (의료)",
+      "medical": true,
+      "family": "gemma-4b",
+      "normal": {
+        "precision": 0.7022653721682848,
+        "recall": 0.6228473019517795,
+        "micro_f1": 0.6601764526924246,
+        "ci": [
+          0.5929008292599888,
+          0.7258981571955492
+        ]
+      },
+      "hallucination_rate": 0.2977346278317152,
+      "omission_rate": 0.37715269804822044,
+      "json_compliance": 0.0,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.39916839916839914,
+        "normal": 0.6601764526924246,
+        "other_patient": 0.07567567567567568,
+        "shuffled": 0.4740177439797212
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.11169891027795116,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.6774969915764139,
+        "main_normal_f1": 0.6601764526924246,
+        "denominator_selection_bias": {
+          "variant": "minimal",
+          "f1_by_variant": {
+            "grounded": 0.4335981838819523,
+            "minimal": 0.6774969915764139,
+            "schema": 0.6558891454965358
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          6,
+          12
+        ],
+        "10~99회": [
+          21,
+          37
+        ],
+        "100~999회": [
+          75,
+          132
+        ],
+        "1000회 이상": [
+          983,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "fence": 430,
+        "failed": 69,
+        "after_reasoning": 100,
+        "bullets": 1
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 131072,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "meditron3-8b": {
+      "label": "Meditron3 8B (의료, EPFL)",
+      "medical": true,
+      "family": "llama31-8b",
+      "normal": {
+        "precision": 0.7996575342465754,
+        "recall": 0.804247990815155,
+        "micro_f1": 0.8019461934745279,
+        "ci": [
+          0.7478402573831637,
+          0.8483842304207311
+        ]
+      },
+      "hallucination_rate": 0.20034246575342465,
+      "omission_rate": 0.195752009184845,
+      "json_compliance": 0.995,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.480610298792117,
+        "normal": 0.8019461934745279,
+        "other_patient": 0.10850111856823266,
+        "shuffled": 0.6736842105263158
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.12251012375046019,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.8856502242152465,
+        "main_normal_f1": 0.8019461934745279,
+        "denominator_selection_bias": {
+          "variant": "minimal",
+          "f1_by_variant": {
+            "grounded": 0.7131594906003639,
+            "minimal": 0.8856502242152465,
+            "schema": 0.8288288288288288
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          4,
+          12
+        ],
+        "10~99회": [
+          24,
+          37
+        ],
+        "100~999회": [
+          102,
+          132
+        ],
+        "1000회 이상": [
+          1271,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "strict": 593,
+        "failed": 7
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 131072,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "medreason-8b": {
+      "label": "MedReason 8B (의료, UCSC)",
+      "medical": true,
+      "family": "_unpaired",
+      "normal": {
+        "precision": 0.8542746113989638,
+        "recall": 0.7571756601607348,
+        "micro_f1": 0.8027997565429094,
+        "ci": [
+          0.7715906984143946,
+          0.8320851259345892
+        ]
+      },
+      "hallucination_rate": 0.14572538860103626,
+      "omission_rate": 0.2428243398392652,
+      "json_compliance": 0.745,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.40308988764044945,
+        "normal": 0.8027997565429094,
+        "other_patient": 0.09795918367346938,
+        "shuffled": 0.6662507797878978
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.12040228195024406,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.813599062133646,
+        "main_normal_f1": 0.8027997565429094,
+        "denominator_selection_bias": {
+          "variant": "schema",
+          "f1_by_variant": {
+            "grounded": 0.7419543592744295,
+            "minimal": 0.7452118398142774,
+            "schema": 0.813599062133646
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          2,
+          12
+        ],
+        "10~99회": [
+          18,
+          37
+        ],
+        "100~999회": [
+          85,
+          132
+        ],
+        "1000회 이상": [
+          1214,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "strict": 294,
+        "after_reasoning": 302,
+        "failed": 2,
+        "embedded_array": 2
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 131072,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    },
+    "olmo2-32b": {
+      "label": "OLMo-2 32B Instruct (기반)",
+      "medical": false,
+      "family": "olmo2-32b",
+      "normal": {
+        "precision": 0.9011786038077969,
+        "recall": 0.8074735987002437,
+        "micro_f1": 0.8517566409597258,
+        "ci": [
+          0.8239739057396551,
+          0.8802110920657268
+        ]
+      },
+      "hallucination_rate": 0.09882139619220308,
+      "omission_rate": 0.1925264012997563,
+      "json_compliance": 0.9932432432432432,
+      "condition_micro_f1": {
+        "empty": 0.08375209380234507,
+        "no_section": 0.39666357738646896,
+        "normal": 0.8517566409597258,
+        "other_patient": 0.10174639331814729,
+        "shuffled": 0.6649958228905598
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.09815864826210673,
+        "other_patient_ratio_vs_normal": 0.11924822389782859,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.8532319391634982,
+        "main_normal_f1": 0.8517566409597258,
+        "denominator_selection_bias": {
+          "variant": "schema",
+          "f1_by_variant": {
+            "grounded": 0.33271375464684017,
+            "minimal": 0.721216509775525,
+            "schema": 0.8532319391634982
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          2,
+          8
+        ],
+        "10~99회": [
+          20,
+          28
+        ],
+        "100~999회": [
+          60,
+          87
+        ],
+        "1000회 이상": [
+          912,
+          1108
+        ]
+      },
+      "recovery_paths": {
+        "strict": 500,
+        "failed": 1
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 4096,
+      "n_excluded_context": 99,
+      "n_responses": 600
+    },
+    "olmo2-32b-meditronfo": {
+      "label": "OLMo-2 32B MeditronFO (의료, EPFL)",
+      "medical": true,
+      "family": "olmo2-32b",
+      "normal": {
+        "precision": 0.9225684608120869,
+        "recall": 0.9021237303785781,
+        "micro_f1": 0.9122315592903829,
+        "ci": [
+          0.8874665562228204,
+          0.9350439238653
+        ]
+      },
+      "hallucination_rate": 0.07743153918791312,
+      "omission_rate": 0.09787626962142197,
+      "json_compliance": 0.9699248120300752,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.507112970711297,
+        "normal": 0.9122315592903829,
+        "other_patient": 0.11627906976744186,
+        "shuffled": 0.7317073170731707
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.1254644900004175,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.9267886855241264,
+        "main_normal_f1": 0.9122315592903829,
+        "denominator_selection_bias": {
+          "variant": "schema",
+          "f1_by_variant": {
+            "grounded": 0.7136150234741784,
+            "minimal": 0.8311488049344641,
+            "schema": 0.9267886855241264
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          2,
+          7
+        ],
+        "10~99회": [
+          16,
+          25
+        ],
+        "100~999회": [
+          60,
+          75
+        ],
+        "1000회 이상": [
+          899,
+          976
+        ]
+      },
+      "recovery_paths": {
+        "strict": 330,
+        "fence": 122,
+        "failed": 8
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 4096,
+      "n_excluded_context": 140,
+      "n_responses": 600
+    },
+    "qwen25-32b": {
+      "label": "Qwen2.5 32B Instruct (기반)",
+      "medical": false,
+      "family": "qwen25-32b",
+      "normal": {
+        "precision": 0.9480069324090121,
+        "recall": 0.9420206659012629,
+        "micro_f1": 0.9450043190325367,
+        "ci": [
+          0.9310299385191124,
+          0.9580970149253731
+        ]
+      },
+      "hallucination_rate": 0.05199306759098787,
+      "omission_rate": 0.05797933409873708,
+      "json_compliance": 1.0,
+      "condition_micro_f1": {
+        "empty": 0.0,
+        "no_section": 0.35897435897435903,
+        "normal": 0.9450043190325367,
+        "other_patient": 0.11489124372559957,
+        "shuffled": 0.8118214716525934
+      },
+      "memorisation_verdict": "암기 경미",
+      "memorisation_basis": {
+        "condition": "empty",
+        "ratio_vs_normal": 0.0,
+        "other_patient_ratio_vs_normal": 0.12089907021888883,
+        "note": "other_patient 는 정답의 16.5%가 남의 노트에도 존재해 판정에서 제외",
+        "denominator_source": "audit_normal",
+        "denominator_f1": 0.9503070910106087,
+        "main_normal_f1": 0.9450043190325367,
+        "denominator_selection_bias": {
+          "variant": "grounded",
+          "f1_by_variant": {
+            "grounded": 0.9503070910106087,
+            "minimal": 0.9491903964265773,
+            "schema": 0.9462486002239642
+          },
+          "note": "이 분모는 변형 선택에 쓰인 점수라 위로 편향돼 비율이 실제보다 작게 나온다"
+        }
+      },
+      "structure_verdict": "구조 의존",
+      "recall_by_rarity": {
+        "10회 미만": [
+          3,
+          12
+        ],
+        "10~99회": [
+          26,
+          37
+        ],
+        "100~999회": [
+          115,
+          132
+        ],
+        "1000회 이상": [
+          1497,
+          1561
+        ]
+      },
+      "recovery_paths": {
+        "strict": 600
+      },
+      "disqualified_vs_baseline": false,
+      "context_window": 32768,
+      "n_excluded_context": 0,
+      "n_responses": 600
+    }
+  },
+  "pairs": [
+    {
+      "a": "medgemma-4b",
+      "b": "gemma3-4b",
+      "description": "쌍1 세로: Google 의료 특화 효과",
+      "n_notes": 200,
+      "diff": -0.20715592961855955,
+      "ci": [
+        -0.27041635201384606,
+        -0.14249793228676427
+      ],
+      "ci_bonferroni": [
+        -0.2965365494918331,
+        -0.12136790186569583
+      ],
+      "ci_bonferroni_seed_spread": {
+        "n_seeds": 20,
+        "lower": [
+          -0.3084670264469842,
+          -0.2920783663856645
+        ],
+        "upper": [
+          -0.12519521743584822,
+          -0.11439658120534045
+        ]
+      },
+      "significant": true,
+      "significant_bonferroni": true,
+      "winner": "Gemma 3 4B (기반)"
+    },
+    {
+      "a": "meditron3-8b",
+      "b": "llama31-8b",
+      "description": "쌍2 세로: EPFL 의료 특화 효과",
+      "n_notes": 200,
+      "diff": -0.11464832311998874,
+      "ci": [
+        -0.17078062029014604,
+        -0.05937417733117934
+      ],
+      "ci_bonferroni": [
+        -0.1948642498531547,
+        -0.04337283367690536
+      ],
+      "ci_bonferroni_seed_spread": {
+        "n_seeds": 20,
+        "lower": [
+          -0.20017955441806332,
+          -0.18522969258552985
+        ],
+        "upper": [
+          -0.04702336177980898,
+          -0.037244130061579846
+        ]
+      },
+      "significant": true,
+      "significant_bonferroni": true,
+      "winner": "Llama 3.1 8B Instruct (기반)"
+    },
+    {
+      "a": "medgemma-4b",
+      "b": "meditron3-8b",
+      "description": "쌍3 가로: 실무 권고 (크기, 계열 교란)",
+      "n_notes": 200,
+      "diff": -0.14176974078210325,
+      "ci": [
+        -0.21031427876474215,
+        -0.06910020888683698
+      ],
+      "ci_bonferroni": [
+        -0.24106163031438269,
+        -0.04253269818307548
+      ],
+      "ci_bonferroni_seed_spread": {
+        "n_seeds": 20,
+        "lower": [
+          -0.2536356352116018,
+          -0.23335869492505573
+        ],
+        "upper": [
+          -0.05639838937645063,
+          -0.035473487925840944
+        ]
+      },
+      "significant": true,
+      "significant_bonferroni": true,
+      "winner": "Meditron3 8B (의료, EPFL)"
+    },
+    {
+      "a": "baichuan-m2-32b",
+      "b": "qwen25-32b",
+      "description": "쌍4 세로: Baichuan-M2 (32B). 현행 최고 성능",
+      "n_notes": 200,
+      "diff": 0.006396481424867595,
+      "ci": [
+        -0.0024984768052845026,
+        0.016371301181337155
+      ],
+      "ci_bonferroni": [
+        -0.004614319078913241,
+        0.019306798910232535
+      ],
+      "ci_bonferroni_seed_spread": {
+        "n_seeds": 20,
+        "lower": [
+          -0.007817324581210403,
+          -0.005427915480894282
+        ],
+        "upper": [
+          0.019269985046379872,
+          0.021738573859039347
+        ]
+      },
+      "significant": false,
+      "significant_bonferroni": false,
+      "winner": null
+    },
+    {
+      "a": "huatuo-o1-8b",
+      "b": "llama31-8b",
+      "description": "쌍5 세로: HuatuoGPT-o1 (8B). 쌍2 와 같은 기반",
+      "n_notes": 200,
+      "diff": -0.002559428875218317,
+      "ci": [
+        -0.02447523923470405,
+        0.020335358579304217
+      ],
+      "ci_bonferroni": [
+        -0.03168021196036491,
+        0.030617753827822516
+      ],
+      "ci_bonferroni_seed_spread": {
+        "n_seeds": 20,
+        "lower": [
+          -0.03302576270210766,
+          -0.02916736306836599
+        ],
+        "upper": [
+          0.027149688332358174,
+          0.03146094566581989
+        ]
+      },
+      "significant": false,
+      "significant_bonferroni": false,
+      "winner": null
+    },
+    {
+      "a": "gemma3-27b-meditronfo",
+      "b": "gemma3-27b",
+      "description": "쌍6 세로: MeditronFO on Gemma 3 27B",
+      "n_notes": 200,
+      "diff": -0.0005725751239009647,
+      "ci": [
+        -0.025497662736915637,
+        0.029209782854745094
+      ],
+      "ci_bonferroni": [
+        -0.03324277391255571,
+        0.04538052022183262
+      ],
+      "ci_bonferroni_seed_spread": {
+        "n_seeds": 20,
+        "lower": [
+          -0.03565436130330003,
+          -0.030642869753135626
+        ],
+        "upper": [
+          0.03605545182492243,
+          0.046596634209465436
+        ]
+      },
+      "significant": false,
+      "significant_bonferroni": false,
+      "winner": null
+    },
+    {
+      "a": "apertus-8b-meditronfo",
+      "b": "apertus-8b",
+      "description": "쌍7 세로: MeditronFO on Apertus 8B",
+      "n_notes": 200,
+      "diff": -0.06931617373130117,
+      "ci": [
+        -0.12687052934674256,
+        -0.010972128721035476
+      ],
+      "ci_bonferroni": [
+        -0.15104741793482332,
+        0.018346790647348746
+      ],
+      "ci_bonferroni_seed_spread": {
+        "n_seeds": 20,
+        "lower": [
+          -0.15641050383969116,
+          -0.1423770908506966
+        ],
+        "upper": [
+          0.0015056816959859473,
+          0.01910109249072207
+        ]
+      },
+      "significant": true,
+      "significant_bonferroni": false,
+      "winner": "Apertus 8B Instruct (기반)"
+    },
+    {
+      "a": "olmo2-32b-meditronfo",
+      "b": "olmo2-32b",
+      "description": "쌍8 세로: MeditronFO on OLMo-2 32B",
+      "n_notes": 133,
+      "diff": 0.044761679772310825,
+      "ci": [
+        0.024087592334631223,
+        0.06941254091348968
+      ],
+      "ci_bonferroni": [
+        0.015791639127746577,
+        0.07914834060111517
+      ],
+      "ci_bonferroni_seed_spread": {
+        "n_seeds": 20,
+        "lower": [
+          0.012663941241995234,
+          0.01899859536991098
+        ],
+        "upper": [
+          0.07583617948830522,
+          0.08286019822707476
+        ]
+      },
+      "significant": true,
+      "significant_bonferroni": true,
+      "winner": "OLMo-2 32B MeditronFO (의료, EPFL)"
+    }
+  ],
+  "prereg_thresholds": {
+    "memorisation_strong": 0.5,
+    "memorisation_present": 0.25,
+    "structure_independent": 0.9
+  }
+}
