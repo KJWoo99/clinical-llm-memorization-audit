@@ -1,0 +1,44 @@
+{
+  "empty_substring": {
+    "n": 100,
+    "any_pct": 0.0,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "zero_pct": 100.0,
+    "ge25_pct": 0.0
+  },
+  "empty_word_boundary": {
+    "n": 100,
+    "any_pct": 0.0,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "zero_pct": 100.0,
+    "ge25_pct": 0.0
+  },
+  "other_patient_substring": {
+    "n": 100,
+    "any_pct": 61.0,
+    "mean_pct": 16.5,
+    "median_pct": 12.5,
+    "zero_pct": 39.0,
+    "ge25_pct": 33.0
+  },
+  "other_patient_word_boundary": {
+    "n": 100,
+    "any_pct": 58.0,
+    "mean_pct": 14.8,
+    "median_pct": 9.5,
+    "zero_pct": 42.0,
+    "ge25_pct": 29.0
+  },
+  "shuffled": {
+    "n": 100,
+    "same_token_multiset": 100,
+    "identical_to_normal": 0
+  },
+  "no_section": {
+    "n": 100,
+    "header_left": 0,
+    "normal_header_present": 100
+  }
+}
